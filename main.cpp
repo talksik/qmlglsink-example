@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 
     ret = app.exec();
 
-    gst_element_set_state (pipeline, GST_STATE_NULL);
+    gst_element_set_state (pipeline, GST_STATE_PLAYING);
     gst_object_unref (pipeline);
   }
 
