@@ -1,4 +1,5 @@
 #!/bin/sh
+# this is special script for running on jetson nano
 
 export QT_DEBUG_PLUGINS=1
 
@@ -7,10 +8,13 @@ mkdir build &&
 cd build &&
 
 echo "Running cmake with build type Debug."
-cmake -Wall -DCMAKE_PREFIX_PATH=$HOME/Qt/5.15.14/gcc_64/ \
+cmake -Wall -DCMAKE_PREFIX_PATH=~/Qt/ \
   -G "Unix Makefiles" \
   -DCMAKE_BUILD_TYPE=Debug .. &&
 
 make &&
 
-./build/qml-example
+echo "running qml-example" &&
+
+./build/qml-example -platform eglfs
+
