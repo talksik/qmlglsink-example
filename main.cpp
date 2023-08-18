@@ -46,10 +46,6 @@ int main(int argc, char *argv[])
 
     GstElement *pipeline = gst_pipeline_new (NULL);
     GstElement *src = gst_element_factory_make ("videotestsrc", NULL);
-    GstElement *capsfilter = gst_element_factory_make ("capsfilter", NULL);
-    GstCaps *caps = gst_caps_from_string ("video/x-raw,format=YV12");
-    g_object_set (capsfilter, "caps", caps, NULL);
-    gst_caps_unref (caps);
     GstElement *glupload = gst_element_factory_make ("glupload", NULL);
     /* the plugin must be loaded before loading the qml file to register the
      * GstGLVideoItem qml item */
@@ -57,8 +53,8 @@ int main(int argc, char *argv[])
 
     g_assert (src && glupload && sink);
 
-    gst_bin_add_many (GST_BIN (pipeline), src, capsfilter, glupload, sink, NULL);
-    gst_element_link_many (src, capsfilter, glupload, sink, NULL);
+    gst_bin_add_many (GST_BIN (pipeline), src, glupload, sink, NULL);
+    gst_element_link_many (src, glupload, sink, NULL);
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
@@ -77,7 +73,7 @@ int main(int argc, char *argv[])
 
     ret = app.exec();
 
-    gst_element_set_state (pipeline, GST_STATE_PLAYING);
+    gst_element_set_state (pipeline, GST_STATE_PAUSED);
     gst_object_unref (pipeline);
   }
 
