@@ -1,0 +1,3 @@
+/home/talksik/code/qmlglsink-example/build/CMakeFiles/qml-example.dir
+/home/talksik/code/qmlglsink-example/build/CMakeFiles/edit_cache.dir
+/home/talksik/code/qmlglsink-example/build/CMakeFiles/rebuild_cache.dir
