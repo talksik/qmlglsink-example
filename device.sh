@@ -3,18 +3,19 @@
 
 export QT_DEBUG_PLUGINS=1
 
-rm -rf build &&
-mkdir build &&
-cd build &&
+rm -rf build
+mkdir build
+cd build
 
 echo "Running cmake with build type Debug."
 cmake -Wall -DCMAKE_PREFIX_PATH=~/Qt/ \
   -G "Unix Makefiles" \
-  -DCMAKE_BUILD_TYPE=Debug .. &&
+  -DCMAKE_BUILD_TYPE=Debug ..
 
-make &&
+make
 
-echo "running qml-example" &&
+echo "running qml-example"
 
+cd ..
 ./build/qml-example -platform eglfs
 
