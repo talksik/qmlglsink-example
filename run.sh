@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export QT_DEBUG_PLUGINS=1
+export GST_DEBUG=2
 
 rm -rf build &&
 mkdir build &&
