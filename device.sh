@@ -2,12 +2,10 @@
 # this is special script for running on jetson nano
 
 export QT_DEBUG_PLUGINS=1
-export QT_QPA_EGLFS_PHYSICAL_WIDTH=1920
-export QT_QPA_EGLFS_PHYSICAL_HEIGHT=1080
+export QT_QPA_EGLFS_WIDTH=1920
+export QT_QPA_EGLFS_HEIGHT=1080
+export QT_QPA_EGLFS_INTEGRATION=eglfs_kms
 
-export GST_GL_PLATFORM=egl
-export GST_GL_WINDOW=dispmanx
-export GST_GL_API=gles2
 export GST_DEBUG=2
 
 rm -rf build
