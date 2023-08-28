@@ -3,8 +3,9 @@ import QtQuick.Controls 1.1
 import QtQuick.Controls.Styles 1.3
 import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.1
+import QtMultimedia 5.0
 
-import org.freedesktop.gstreamer.GLVideoItem 1.0
+// import org.freedesktop.gstreamer.GLVideoItem 1.0
 
 ApplicationWindow {
     id: window
@@ -18,12 +19,24 @@ ApplicationWindow {
     Item {
         anchors.fill: parent
 
-        GstGLVideoItem {
-            id: video
-            objectName: "videoItem"
-            anchors.centerIn: parent
-            width: parent.width
-            height: parent.height
+        // GstGLVideoItem {
+        //     id: video
+        //     objectName: "videoItem"
+        //     anchors.centerIn: parent
+        //     width: parent.width
+        //     height: parent.height
+        // }
+
+        MediaPlayer {
+            id: player
+            autoPlay: true
+            source: "gst-pipeline: videotestsrc ! qtvideosink"
+        }
+
+        VideoOutput {
+            id: videoOutput
+            anchors.fill: parent
+            source: player
         }
 
         Rectangle {
