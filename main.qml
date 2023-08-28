@@ -33,8 +33,8 @@ ApplicationWindow {
             anchors.bottom: video.bottom
             anchors.bottomMargin: 15
             anchors.horizontalCenter: parent.horizontalCenter
-            width : parent.width - 30
-            height: parent.height - 30
+            width : parent.width - 100
+            height: parent.height - 100
             radius: 8
 
             Button {
