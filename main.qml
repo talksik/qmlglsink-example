@@ -37,22 +37,21 @@ ApplicationWindow {
             height: parent.height - 30
             radius: 8
 
-            MouseArea {
-                id: mousearea
-                anchors.fill: parent
-                hoverEnabled: true
-                onEntered: {
-                    parent.opacity = 1.0
-                    hidetimer.start()
-                }
-            }
+            Button {
+                id: button
+                anchors.centerIn: parent
+                text: "Play"
+                onClicked: {
+                  text = "Done"
+                  console.log("clicked")
 
-            Timer {
-                id: hidetimer
-                interval: 5000
-                onTriggered: {
-                    parent.opacity = 0.0
-                    stop()
+                    // if (video.playing) {
+                    //     video.pause()
+                    //     text = "Play"
+                    // } else {
+                    //     video.play()
+                    //     text = "Pause"
+                    // }
                 }
             }
         }
