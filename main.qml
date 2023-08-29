@@ -30,11 +30,11 @@ ApplicationWindow {
         MediaPlayer {
             id: player
             autoPlay: true
-            source: "gst-pipeline: videotestsrc ! qtvideosink"
+            source: "gst-pipeline: videotestsrc ! videoconvert ! qtvideosink"
         }
 
         VideoOutput {
-            id: videoOutput
+            id: output
             anchors.fill: parent
             source: player
         }
@@ -43,7 +43,6 @@ ApplicationWindow {
             color: "red"
             border.width: 1
             border.color: "white"
-            anchors.bottom: video.bottom
             anchors.bottomMargin: 15
             anchors.horizontalCenter: parent.horizontalCenter
             width : parent.width - 100
